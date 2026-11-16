@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101014">
+<title>Contas Gemadas FF | Catálogo</title>
+<style>
+:root{--bg:#0d0d12;--panel:#17171f;--panel2:#20202a;--gold:#ffc247;--red:#ff4545;--muted:#aaaab6;--line:#30303b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#35151b 0,transparent 28rem),var(--bg);color:#f7f7fb;font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:5;background:#101014eF;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;letter-spacing:.3px;font-size:19px}.brand span{color:var(--gold)}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:2px;margin-top:3px}
+nav{display:flex;gap:22px;color:#ddd;font-size:14px}nav a:hover{color:var(--gold)}
+.btn{border:0;border-radius:10px;padding:12px 17px;background:linear-gradient(135deg,var(--gold),#ff8b36);color:#211507;font-weight:800;cursor:pointer;display:inline-block}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.btn.secondary{background:#292933;color:white;border:1px solid #444451}
+.hero{padding:74px 0 58px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:34px}
+.tag{display:inline-flex;padding:7px 11px;border:1px solid #754c2a;border-radius:99px;color:var(--gold);font-size:11px;font-weight:800;letter-spacing:1px;background:#281c17}
+h1{font-size:clamp(38px,6vw,66px);line-height:.98;margin:18px 0;font-weight:950;letter-spacing:-2px}h1 span{color:var(--gold)}.lead{color:#c1c1cc;line-height:1.7;max-width:580px}
+.hero-card{min-height:300px;border:1px solid #58402b;border-radius:24px;background:linear-gradient(145deg,#302018,#17171f 60%);padding:25px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 25px 70px #0008;position:relative;overflow:hidden}
+.hero-card:after{content:"FF";position:absolute;right:-8px;bottom:-45px;font-size:190px;font-weight:1000;color:#ffffff09;transform:rotate(-12deg)}
+.hero-icon{font-size:76px;filter:drop-shadow(0 8px 20px #ff9d2b55)}.hero-card strong{font-size:23px}.hero-card p{color:#c5bdb5;line-height:1.5;max-width:330px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 48px}.stat{background:var(--panel);border:1px solid var(--line);padding:18px;border-radius:14px}.stat b{display:block;color:var(--gold);font-size:24px}.stat small{color:var(--muted)}
+section{padding:25px 0 55px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:20px}h2{font-size:29px;margin:0 0 7px}.sub{color:var(--muted);font-size:14px}
+.tools{display:flex;gap:10px;margin:18px 0 22px;flex-wrap:wrap}.tools input,.tools select{background:var(--panel);border:1px solid var(--line);color:white;padding:12px 14px;border-radius:10px;outline:none}.tools input{flex:1;min-width:190px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.account{background:linear-gradient(160deg,#20202a,#15151c);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:.2s}.account:hover{transform:translateY(-4px);border-color:#8b6939}
+.art{height:155px;display:grid;place-items:center;background:radial-gradient(circle at 50% 70%,#6b3823,#24171a 55%,#15151c);font-size:62px;position:relative}.art:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,#1114)}.rarity{position:absolute;z-index:1;top:12px;left:12px;background:#17171ddd;border:1px solid #6d5537;color:var(--gold);padding:6px 9px;border-radius:7px;font-size:10px;font-weight:800;letter-spacing:.7px}
+.info{padding:17px}.info h3{margin:0 0 8px;font-size:18px}.info p{margin:0;color:var(--muted);font-size:13px;line-height:1.5;min-height:40px}.chips{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.chip{font-size:10px;padding:6px 8px;border-radius:6px;background:#292933;color:#ddd}.info .btn{width:100%;text-align:center;margin-top:5px}
+.empty{display:none;text-align:center;color:var(--muted);padding:30px;background:var(--panel);border-radius:14px}
+.notice{background:#211c16;border:1px solid #634a2b;border-radius:13px;padding:16px 18px;color:#e9d8b7;font-size:13px;line-height:1.6;margin-top:25px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px;line-height:1.7}
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:10;place-items:center;padding:18px}.modal.show{display:grid}.dialog{max-width:430px;width:100%;background:#1b1b24;border:1px solid #51412d;border-radius:18px;padding:24px;box-shadow:0 25px 80px #0009}.dialog h3{margin-top:0}.dialog p{color:#c4c4ce;line-height:1.6;font-size:14px}.close{float:right;background:none;border:0;color:white;font-size:24px;cursor:pointer}
+@media(max-width:760px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:48px}.hero-card{min-height:230px}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:13px}.stat b{font-size:20px}.section-head{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="#"><span>◆</span> CONTAS GEMADAS FF<small>CATÁLOGO DEMONSTRATIVO</small></a><nav><a href="#inicio">Início</a><a href="#catalogo">Catálogo</a><a href="#seguranca">Segurança</a></nav><a class="btn" href="#catalogo">Ver catálogo</a></div></header>
+<main class="wrap">
+<section class="hero" id="inicio">
+<div><span class="tag">⚡ UNIVERSO FREE FIRE</span><h1>ENCONTRE SUA PRÓXIMA <span>CONTA.</span></h1><p class="lead">Explore um catálogo demonstrativo com exemplos de contas, raridades, skins e itens. Confira os detalhes e veja como funciona uma solicitação de interesse.</p><a class="btn" href="#catalogo">Explorar catálogo →</a></div>
+<div class="hero-card"><div class="hero-icon">🎮</div><div><strong>Seu inventário. Seu estilo.</strong><p>Uma vitrine gamer com visual moderno, navegação simples e foco nos detalhes.</p></div></div>
+</section>
+<div class="stats"><div class="stat"><b>03</b><small>Exemplos no catálogo</small></div><div class="stat"><b>100%</b><small>Layout responsivo</small></div><div class="stat"><b>🔒</b><small>Sem pedir senhas</small></div></div>
+<section id="catalogo">
+<div class="section-head"><div><h2>Catálogo de contas</h2><div class="sub">Veja os exemplos disponíveis nesta demonstração.</div></div></div>
+<div class="tools"><input id="search" type="search" placeholder="Pesquisar por nome ou item..."><select id="filter"><option value="all">Todas as raridades</option><option value="Lendária">Lendária</option><option value="Épica">Épica</option><option value="Rara">Rara</option></select></div>
+<div class="grid" id="grid">
+<article class="account" data-rarity="Lendária" data-search="arsenal lendário angelical evolutiva"><div class="art"><span class="rarity">LENDÁRIA</span>👑</div><div class="info"><h3>Arsenal Lendário</h3><p>Exemplo de inventário com destaque para itens raros e coleção temática.</p><div class="chips"><span class="chip">Itens raros</span><span class="chip">Arma evolutiva</span></div><button class="btn interest" data-name="Arsenal Lendário">RESGATAR</button></div></article>
+<article class="account" data-rarity="Épica" data-search="coleção urbana skins personagens"><div class="art" style="background:radial-gradient(circle at 50% 70%,#294b60,#171c29 60%,#15151c)"><span class="rarity">ÉPICA</span>🛡️</div><div class="info"><h3>Coleção Urbana</h3><p>Exemplo de conta com coleção de skins e visual urbano.</p><div class="chips"><span class="chip">Skins</span><span class="chip">Personagens</span></div><button class="btn interest" data-name="Coleção Urbana">RESGATAR</button></div></article>
+<article class="account" data-rarity="Rara" data-search="clássica veterana itens antigos"><div class="art" style="background:radial-gradient(circle at 50% 70%,#45502c,#24291c 60%,#15151c)"><span class="rarity">RARA</span>🔥</div><div class="info"><h3>Clássica Veterana</h3><p>Exemplo de inventário inspirado em coleções de temporadas antigas.</p><div class="chips"><span class="chip">Temporadas antigas</span><span class="chip">Coleção</span></div><button class="btn interest" data-name="Clássica Veterana">RESGATAR</button></div></article>
+</div><div class="empty" id="empty">Nenhum resultado encontrado. Tente outra pesquisa.</div>
+
+</section>
+</main>
+<footer><div class="wrap">© 2026 Contas Gemadas FF · Projeto demonstrativo independente, sem vínculo oficial com Garena ou Free Fire.</div></footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="dialog"><button class="close" id="close" aria-label="Fechar">×</button><h3 id="modalTitle">Interesse registrado</h3><p>Você selecionou este exemplo do catálogo. Como esta é uma demonstração, nenhuma conta está sendo reservada ou entregue. Para publicar o site, configure um canal de contato legítimo e confirme a disponibilidade de qualquer oferta.</p><button class="btn" id="ok">Entendi</button></div></div>
+<script>
+const search=document.getElementById('search'),filter=document.getElementById('filter'),cards=[...document.querySelectorAll('.account')],empty=document.getElementById('empty');
+function update(){let shown=0;cards.forEach(c=>{const match=(c.dataset.search+' '+c.innerText).toLowerCase().includes(search.value.toLowerCase())&&(filter.value==='all'||c.dataset.rarity===filter.value);c.style.display=match?'':'none';if(match)shown++});empty.style.display=shown?'none':'block'}
+search.addEventListener('input',update);filter.addEventListener('change',update);
+const redeemUrl='https://www.tiktok.com/d/4/ZS9fcLrCyoJpW-0B2wk/';document.querySelectorAll('.interest').forEach(b=>b.addEventListener('click',()=>{window.location.href=redeemUrl}));
+</script>
+</body></html>
